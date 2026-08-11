@@ -178,10 +178,13 @@ education, and the kind of data problems you like working on. -->
 - **Languages & tools:** Python, SQL, DuckDB, pandas
 - **Data engineering:** ELT pipelines, data ingestion, schema design
 - **Practices:** version control, reproducible environments (`uv`)
-
-See the [Projects](projects/index.md) page for what I've built, or the
-[Blog](blog/index.md) for write-ups on how and why.
 ```
+
+> **Amendment (post-Task-2):** the original draft of this page also linked
+> to `projects/index.md` and `blog/index.md`, but those pages don't exist
+> until Tasks 3 and 4 — `mkdocs build --strict` fails on broken internal
+> links, so those forward references broke Task 2's own commit. Removed;
+> Home (Task 6) already links to Projects and Blog once both exist.
 
 - [ ] **Step 2: Add nav entry in `mkdocs.yml`**
 
