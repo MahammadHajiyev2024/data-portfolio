@@ -312,10 +312,18 @@ git commit -m "Add Projects section with analytics pipeline write-up"
 
 **Interfaces:**
 - Consumes: existing `mkdocs.yml` `nav` and `plugins` config.
-- Produces: the `blog` plugin enabled, with a virtual index page auto-generated
-  at `blog/index.md` (no manual file needed — the plugin generates it from
-  posts under `docs/blog/posts/`). Later posts are added as new files under
-  `docs/blog/posts/` following the same front-matter pattern.
+- Produces: the `blog` plugin enabled, with an index page at `blog/index.md`
+  that lists posts under `docs/blog/posts/`. Later posts are added as new
+  files under `docs/blog/posts/` following the same front-matter pattern.
+
+> **Amendment (post-Task-4):** in the installed `mkdocs-material==9.7.7`,
+> the blog plugin's index page is not purely virtual — if `docs/blog/index.md`
+> doesn't already exist, `mkdocs build` writes a real stub file there
+> (`"# Blog\n\n"`) itself. The rendered page still auto-lists posts (verified:
+> `site/blog/index.html` contains the post title after build) — only the
+> stub's physical presence in `docs/` differs from the original assumption.
+> Accept and commit the plugin-generated stub as-is; do not hand-author or
+> replace its content.
 
 - [ ] **Step 1: Enable the blog plugin in `mkdocs.yml`**
 
