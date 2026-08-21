@@ -9,13 +9,13 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = PROJECT_ROOT / "data" / "macro_analytics.duckdb"
 
-def get_connection():
+def get_connection() -> duckdb.DuckDBPyConnection:
     """Establishes and returns a connection to the persistent DuckDB file."""
     # Ensure the data directory exists inside project root
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     return duckdb.connect(str(DB_PATH))
 
-def init_db():
+def init_db() -> None:
     """Initializes the database schema using explicit DDL statements."""
     with get_connection() as con:
         # Using explicit DDL is more professional than letting Pandas infer types

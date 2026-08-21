@@ -1,17 +1,21 @@
 [project]
 name = "01-analytics-pipeline-duckdb"
 version = "0.1.0"
-description = "Add your description here"
+description = "ELT pipeline that loads macroeconomic indicators from FRED into DuckDB"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "duckdb>=1.5.4",
     "matplotlib>=3.11.1",
     "pandas>=3.0.3",
-    "pandas-datareader>=0.11.1",
+    "requests>=2.32.3",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.3.0",
+    "pytest>=8.3.4",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

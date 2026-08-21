@@ -4,7 +4,7 @@ import requests
 import io
 from src.database import get_connection
 
-def extract_fred_data(symbols: list) -> pd.DataFrame:
+def extract_fred_data(symbols: list[str]) -> pd.DataFrame:
     """Fetches raw time-series data directly from FRED CSV endpoints."""
     df_list = []
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
@@ -39,7 +39,7 @@ def extract_fred_data(symbols: list) -> pd.DataFrame:
 
     return combined_df
 
-def transform_and_load(raw_df: pd.DataFrame):
+def transform_and_load(raw_df: pd.DataFrame) -> None:
     """Cleans data and merges it into production analytical layers using DuckDB."""
     # 1. Clean data in Pandas (Type safety & Interpolation)
     raw_df["DGS10"] = pd.to_numeric(raw_df["DGS10"], errors="coerce")
